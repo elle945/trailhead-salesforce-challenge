@@ -1,3 +1,4 @@
+```
 trigger ClosedOpportunityTrigger on Opportunity (after insert, after update) {
 List<Task> taskList = new List<Task>();
     for(Opportunity i: Trigger.new){
@@ -15,7 +16,9 @@ List<Task> taskList = new List<Task>();
         insert taskList;
     }
 }
--------
+´´´
+
+```
 trigger AccountAddressTrigger on Account (before insert, before update) {
     for(Account i : Trigger.new){
         if (i.Match_Billing_Address__c == true && i.BillingPostalCode!= null ){
@@ -24,7 +27,9 @@ trigger AccountAddressTrigger on Account (before insert, before update) {
     }
     
 }
--------
+´´´
+
+```
 trigger AccountDeletion on Account (before delete) {
   // Prevent the deletion of accounts if they have related opportunities.
   for(Account a : [SELECT Id FROM Account
@@ -33,7 +38,10 @@ trigger AccountDeletion on Account (before delete) {
     Trigger.oldMap.get(a.Id).addError('Cannot delete account with related opportunities.');
   }
 }
--------
+´´´
+
+```
+
 trigger AddRelatedRecord on Account(after insert, after update) {
     List<Opportunity> oppList = new List<Opportunity>();
     // Add an opportunity for each account if it doesn't already have one.
@@ -61,4 +69,4 @@ trigger AddRelatedRecord on Account(after insert, after update) {
         insert oppList;
     }
 }
--------
+´´´

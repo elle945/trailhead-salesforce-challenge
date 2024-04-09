@@ -121,6 +121,7 @@ private class TestAccountDeletion {
 ´´´
 
 ## VERIFY DATE 
+```
 
 public class VerifyDate {
   //method to handle potential checks against two dates
@@ -148,7 +149,7 @@ public class VerifyDate {
     return lastDay;
   }
 }
-
+´´´
 
 ```
 @isTest
@@ -220,6 +221,7 @@ private class TemperatureConverterTest {
   }
 }
 ´´´
+
 ```
 
 @RestResource(urlMapping='/Accounts/*/contacts')
@@ -237,7 +239,10 @@ global with sharing class AccountManager {
         return result;
     }
 }
+
 ´´´
+
+
 ```
 
 @IsTest
