@@ -10,7 +10,9 @@ trigger RestrictContactByName on Contact (before insert, before update) {
     }
   }
 }
+
 ´´´
+
 ```
 
 @isTest
@@ -51,7 +53,9 @@ trigger AccountDeletion on Account (before delete) {
     Trigger.oldMap.get(a.Id).addError('Cannot delete account with related opportunities.');
   }
 }
+
 ´´´
+
 ```
 
 @isTest
@@ -118,6 +122,7 @@ private class TestAccountDeletion {
     }
   }
 }
+
 ´´´
 
 ## VERIFY DATE 
@@ -149,7 +154,10 @@ public class VerifyDate {
     return lastDay;
   }
 }
+
 ´´´
+
+##VERIFY DATE
 
 ```
 @isTest
@@ -189,6 +197,9 @@ public class TestVerifyDate {
     }
 }
 ´´´
+
+
+
 ```
 
 public class TemperatureConverter {
@@ -199,6 +210,9 @@ public class TemperatureConverter {
   }
 }
 ´´´
+
+
+
 ```
 
 @isTest
@@ -220,10 +234,10 @@ private class TemperatureConverterTest {
     System.assertEquals(-23.33,celsius);
   }
 }
+
 ´´´
 
 ```
-
 @RestResource(urlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
   @HttpGet
