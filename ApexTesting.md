@@ -1,4 +1,6 @@
 ## TEST APEX TRIGGERS
+```
+
 trigger RestrictContactByName on Contact (before insert, before update) {
   //check contacts prior to insert or update for invalid data
   for(Contact c : Trigger.New) {
@@ -8,7 +10,9 @@ trigger RestrictContactByName on Contact (before insert, before update) {
     }
   }
 }
----------------------
+´´´
+```
+
 @isTest
 public class TestRestrictContactByName {
 static testMethod void  Test() 
@@ -33,9 +37,11 @@ static testMethod void  Test()
         
     }
 }
+´´´
 
-============================
+
 ## TEST ACCOUNT DELETION
+```
 
 trigger AccountDeletion on Account (before delete) {
   // Prevent the deletion of accounts if they have related opportunities.
@@ -45,7 +51,8 @@ trigger AccountDeletion on Account (before delete) {
     Trigger.oldMap.get(a.Id).addError('Cannot delete account with related opportunities.');
   }
 }
----------------------
+´´´
+```
 
 @isTest
 private class TestAccountDeletion {
@@ -111,8 +118,7 @@ private class TestAccountDeletion {
     }
   }
 }
-
-============================
+´´´
 
 ## VERIFY DATE 
 
@@ -142,7 +148,9 @@ public class VerifyDate {
     return lastDay;
   }
 }
---------------
+
+
+```
 @isTest
 public class TestVerifyDate {
     @isTest
@@ -179,8 +187,9 @@ public class TestVerifyDate {
         System.assertEquals(d2, result, 'Should return date2 if it is within 30 days of date1.');
     }
 }
+´´´
+```
 
-==============
 public class TemperatureConverter {
   // Takes a Fahrenheit temperature and returns the Celsius equivalent.
   public static Decimal FahrenheitToCelsius(Decimal fh) {
@@ -188,7 +197,9 @@ public class TemperatureConverter {
     return cs.setScale(2);
   }
 }
------------
+´´´
+```
+
 @isTest
 private class TemperatureConverterTest {
   @isTest static void testWarmTemp() {
@@ -208,7 +219,8 @@ private class TemperatureConverterTest {
     System.assertEquals(-23.33,celsius);
   }
 }
-===============
+´´´
+```
 
 @RestResource(urlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
@@ -225,7 +237,9 @@ global with sharing class AccountManager {
         return result;
     }
 }
----------
+´´´
+```
+
 @IsTest
 private class AccountManagerTest {
     @isTest static void testGetAccById() {
@@ -253,4 +267,4 @@ private class AccountManagerTest {
     }
 
 }
-=============
+```
